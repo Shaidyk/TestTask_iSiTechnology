@@ -9,7 +9,6 @@ class ChatThread(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def clean(self):
-        # Проверка количества участников
         if self.pk and self.participants.count() > 2:
             raise ValidationError("Thread can't have more than 2 participants.")
 
